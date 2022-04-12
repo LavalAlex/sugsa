@@ -1,12 +1,12 @@
 import axios from "axios";
-import { LOGIN_ADMIN, LOGOUT_ADMIN } from "./ActionsTypes";
+import { LOGIN_ADMIN, LOGOUT_ADMIN, URLLOGIN } from "./ActionsTypes";
 
-const URL = "http://181.15.255.130:3001/api/auth";
+
 
 export function loginAdmin(admin) {
   return async (dispatch) => {
     try {
-      const response = await axios.post(URL, admin);
+      const response = await axios.post(URLLOGIN, admin);
       dispatch({ type: LOGIN_ADMIN, payload: response });
     } catch (e) {
       console.log(e);

@@ -14,6 +14,14 @@ const validateNewUser = ({ password, name, rol, moduls }) => {
   return {};
 };
 
+const validateNewPassword= ({password})=>{
+  if (password.length < 6)
+  return {
+    error: "Error, The password must be at least 6 characters",
+  };
+  return {}
+} 
 module.exports = {
   validateNewUser,
+  validateNewPassword
 };

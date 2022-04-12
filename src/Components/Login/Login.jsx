@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
 import { FaUserCircle, FaKey } from "react-icons/fa";
 import { loginAdmin } from "../../Redux/Actions/Auth";
-import style from "./AdminLogin.module.css";
-import { allUsers } from "../../Redux/Actions/User";
+import style from "./Login.module.css";
+
 
 export default function AdminLogin() {
   const dispatch = useDispatch();
 
   const [input, setInput] = useState({
-    email: "admin@gmail.com",
-    password: "123456",
+    "email": "jorgemg0908@gmail.com",
+    "password": "111111"
   });
 
   var admin = useSelector((state) => state);

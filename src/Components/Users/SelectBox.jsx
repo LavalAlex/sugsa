@@ -8,15 +8,16 @@ export default function SelectBox() {
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.admin);
   const users = useSelector((state) => state.users.users);
+
   useEffect(() => {
     dispatch(allUsers(admin.token));
   }, []);
- 
+
   return (
     <div>
-      {users.roles
-        ? users.roles.map((e, index) => {
-            return <CardUser key={index} name={e.name} />;
+      {users[0]
+        ? users.map((e, index) => {
+            return <CardUser key={index} name={e.Nombre} email={e.Correo} rol={e.Rol} id={e.id} />;
           })
         : " LOADING..."}
     </div>

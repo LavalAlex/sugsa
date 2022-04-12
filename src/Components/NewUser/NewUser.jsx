@@ -4,13 +4,19 @@ import optionSelect from "../../Utils/select";
 import style from "./NewUser.module.css";
 import Select from "react-select";
 import { validateNewUser } from "../../Utils/validate";
-import { createUser } from "../../Redux/Actions/User";
+import { allRoles, createUser } from "../../Redux/Actions/User";
 import { objNewUser } from "../../Utils/utils";
 
 export default function NewUserCard() {
   const dispatch = useDispatch();
-  const allRoles = useSelector((state) => state.users.users.roles);
+  const admin = useSelector((state) => state.admin);
   const [optionsRoles, setOptionsRoles] = useState([]);
+  const roles = useSelector((state) => state.users.roles) ;
+
+  useEffect(()=>{
+    dispatch(allRoles(admin.token))
+  },[])
+
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -21,13 +27,13 @@ export default function NewUserCard() {
     name: "",
     email: "",
     password: "",
-    rol: "",
+    rol: [],
     moduls: "",
   });
 
   useEffect(() => {
-    if (allRoles) {
-      setOptionsRoles(optionSelect(allRoles));
+    if (roles) {
+      setOptionsRoles(optionSelect(roles));
     } else {
       setOptionsRoles([]);
     }
@@ -45,6 +51,7 @@ export default function NewUserCard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(data.rol)
     const { name, password, rol, moduls } = validateNewUser(data);
     if (name || password || rol || moduls)
       setErrors((old) => ({
@@ -65,14 +72,14 @@ export default function NewUserCard() {
           email: "",
           password: "",
           moduls: "",
-          rol: "",
+          rol: [],
         });
       }
     }
   };
 
   const handleSelect = (e) => {
-    setData((old) => ({ ...old, rol: e.value }));
+    setData((old) => ({ ...old, rol: e.map((option) => option.value) }));
     setErrors({
       name: "",
       email: "",
@@ -160,6 +167,7 @@ export default function NewUserCard() {
           onChange={(e) => handleSelect(e)}
           options={optionsRoles}
           placeholder="Roles"
+          isMulti
         />
       </label>
       {errors.rol ? <span className={style.error}>{errors.rol}</span> : ""}
