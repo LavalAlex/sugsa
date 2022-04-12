@@ -5,6 +5,8 @@ import "./App.css";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import Admin from "./Pages/Admin/Admin";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import User from './Pages/User/User'
+
 import NavbarAdmin from "./Components/Navbar/NavBar";
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/user">
+            <User />
           </Route>
         </Switch>
       </Router>

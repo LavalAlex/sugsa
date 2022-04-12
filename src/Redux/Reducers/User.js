@@ -1,4 +1,4 @@
-import { ALL_USERS } from "../Actions/ActionsTypes";
+import { ALL_USERS, NEW_USER } from "../Actions/ActionsTypes";
 
 const initialState = {
     users:[]
@@ -10,6 +10,10 @@ export default function root(state= initialState, action){
             return{ 
                 ...state,
                users: action.payload.data
+            }
+        case NEW_USER:
+            return{
+                ...state
             }
         default:
             return state

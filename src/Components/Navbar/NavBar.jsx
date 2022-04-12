@@ -10,7 +10,7 @@ export default function NavbarAdmin() {
   const handleLogout = () => {
     dispatch(logoutAdmin());
   };
-
+  // console.log(session)
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -20,7 +20,7 @@ export default function NavbarAdmin() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link href="/user">User</Nav.Link>
               <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
