@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoPersonAdd } from "react-icons/io5";
 import NewUser from "../../Components/NewUser/NewUser";
+import SearchBar from "../../Components/SearchBar/SearchBar";
 import SelectBox from "../../Components/Users/SelectBox";
 import style from "./user.module.css";
 
@@ -23,6 +24,7 @@ export default function User() {
         ) : (
           ""
         )}
+        <div className={style.left}>
         <div className={style.newUserOpen}>
           <button
             className={style.createUser}
@@ -31,6 +33,7 @@ export default function User() {
           <IoPersonAdd/>
             Create User
           </button>
+        </div>
         </div>
       </div>
 

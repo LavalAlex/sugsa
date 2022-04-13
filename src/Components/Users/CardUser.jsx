@@ -20,8 +20,12 @@ export default function CardUser({ name, email, rol, id }) {
   const handleNewPass = (e)=>{
     e.preventDefault()
     setNewPass(true)
-    setEditMode(false)
+    setOptions(false)
   }
+  const handleClose = ()=>{
+    setNewPass(false)
+  }
+  
   return (
     <div className={styles.container}>
       <div className={styles.options}>
@@ -70,7 +74,7 @@ export default function CardUser({ name, email, rol, id }) {
       <div>Name: {name}</div>
       <div>Email: {email}</div>
       <div>Rol: {rol}</div>
-      {newPass?<NewPassword id={id}/>:""}
+      {newPass?<NewPassword id={id} handleClose={handleClose}/>:""}
     </div>
   );
 }

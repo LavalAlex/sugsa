@@ -10,7 +10,7 @@
   max-width: 25em;
   margin: 0 auto;
   padding: 1em 1.5em;
-
+  
   background-color: #fff;
   border-radius: 1em;
   box-shadow: 0 0.25em 0.5em #0005;
@@ -20,6 +20,16 @@
   margin: 0;
   padding: 0;
   border: none;
+}
+
+.wrapper label{
+  font-family: "Roboto";
+  padding: 0.75em;
+  border: none;
+  width: 100%;
+  font-size: 0.9rem;
+  border: none;
+  resize: none;
 }
 
 .error {
@@ -74,12 +84,34 @@
 }
 
 .inputGroup input{
-  margin-bottom: 1.5rem;
+  font-family: "Roboto";
+  padding: 0.75em;
+  border: none;
+  width: 100%;
+  font-size: 0.9rem;
+  border: none;
+  resize: none;
 }
 .inputGroup:focus-within {
-  outline: 2px solid var(--c-blue);
+  outline: 2px solid hsl(226deg, 100%, 70%);
 }
 
 .inputGroup:focus-within.error {
   outline: 2px solid red;
+}
+
+form button[type="submit"] {
+  border-radius: 5em;
+  border: none;
+  color: #fff;
+  background-color:  hsl(226deg, 100%, 70%);
+}
+
+form button[type="submit"]:hover {
+  color: black
+  
+}
+form > h1 {
+  margin: 0 0 0.5em 5rem;
+  color: #1e1e1e;
 }

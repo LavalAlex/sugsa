@@ -1,6 +1,7 @@
 import {
   ALL_ROLES,
   ALL_USERS,
+  GET_USER_NAME,
   NEW_PASSWORD,
   NEW_USER,
 } from "../Actions/ActionsTypes";
@@ -8,6 +9,7 @@ import {
 const initialState = {
   users: [],
   roles: [],
+  userName:[]
 };
 
 export default function root(state = initialState, action) {
@@ -31,6 +33,16 @@ export default function root(state = initialState, action) {
       return {
         ...state,
       };
+
+    case GET_USER_NAME:
+      const users = state.users
+      // console.log(users)
+      // console.log(action.payload)
+      const userFilter = users.filter(e => e.nombre.includes(action.payload))
+      return{
+        ...state,
+        users:userFilter
+      }
     default:
       return state;
   }

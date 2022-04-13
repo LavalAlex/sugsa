@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
+import { allRoles, createUser } from "../../Redux/Actions/User";
+
+import { validateNewUser } from "../../Utils/validate";
+import { objNewUser } from "../../Utils/utils";
 import optionSelect from "../../Utils/select";
 import style from "./NewUser.module.css";
-import Select from "react-select";
-import { validateNewUser } from "../../Utils/validate";
-import { allRoles, createUser } from "../../Redux/Actions/User";
-import { objNewUser } from "../../Utils/utils";
 
 export default function NewUserCard() {
   const dispatch = useDispatch();
@@ -90,6 +91,7 @@ export default function NewUserCard() {
 
   return (
     <form className={style.container} onSubmit={(e) => handleSubmit(e)}>
+        <h1>New User</h1>
       <label className={style.wrapper}>
         Name
         <div className={style.inputGroup}>

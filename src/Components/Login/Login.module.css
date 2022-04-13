@@ -1,126 +1,129 @@
 .container {
-    --p: 5em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1em;
-    margin: 0 0 0 auto;
-    background-color: #fff;
-    margin: 0 auto;
-    overflow: hidden;
-    box-shadow: 0 0.25em 1em #0002;
-    border: 1px solid black;
-  }
-  
-  
-  .container > form {
-    padding: 2.5em 5em;
-  }
-  
-  .container button[type="submit"] {
-    border-radius: 0;
-  }
-  
-  .container > form > h1 {
-    align-self: center;
-  }
-  
+  --p: 5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+  margin: 0 0 0 auto;
+  background-color: #fff;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 0.25em 1em #0002;
+  border: 1px solid black;
+  max-width: 450px;
+}
 
-  .buttonContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  form .buttonContainer {
-    margin: 2em 0 0 0;
-  }
 
-  .btn {
-    padding: 1em;
-    text-align: center;
-    font-size: 1rem;
-  }
-  
-  .btn:disabled {
-    background-color: #ccc;
-    cursor: no-drop;
-  }
-  
-  button[type="submit"] {
-    border-radius: 5em;
-    border: none;
-    color: #fff;
-    background-color: hsl(226deg, 100%, 70%);;
-  }
-  
-  .inputGroup {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    width: 100%;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    padding: 0 0 0 1em;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .inputGroup:focus-within {
-    outline: 2px solid hsl(226deg, 100%, 70%);
+.container>form {
+  padding: 2.5em 5em;
+}
+
+
+.container>form>h1 {
+  align-self: center;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 0 0 0 1em;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.inputGroup:focus-within {
+  outline: 2px solid hsl(226deg, 100%, 70%);
   ;
-  }
-  .inputGroup:focus-within.error {
-    outline: 2px solid red;
-  }
-  .inputGroup:focus-within  input{
-    border: none;
-  }
+}
 
-  .btn.simple {
-    text-decoration: none;
-    align-self: flex-end;
-    padding: 0;
-    color: #1e1e1e;
-    font-size: 0.8rem;
+.inputGroup:focus-within.error {
+  outline: 2px solid red;
+}
+
+form label{
+  margin: 1em 0 0 0;
+  font-size: 0.9rem;
+  width: 100%;
+  background-color: #fff;
+  font-family: "Roboto";
+  padding: 0.75em;
+  border: none;
+  width: 100%;
+  font-size: 0.9rem;
+  border: none;
+  resize: none;
+}
+.inputGroup input {
+  font-family: "Roboto";
+  padding: 0.75em;
+  border: none;
+  width: 100%;
+  font-size: 0.9rem;
+  border: none;
+  resize: none;
+}
+.inputGroup :focus input{
+  border: none;
+}
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2em 0 0 0;
+}
+
+
+.buttonContainer button[type="submit"] {
+  border-radius: 5em;
+  border: none;
+  color: #fff;
+  background-color: hsl(226deg, 100%, 70%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+  font-size: 1rem;
+  /* margin: 2em 0 0 0; */
+
+}
+
+.buttonContainer  button[type="submit"]:hover{
+  color: black;
+
+}
+
+.error {
+  margin-top: 1rem;
+  color: #f33;
+}
+
+@media screen and (max-width: 1100px) {
+  .left {
+    display: none;
   }
-  
-  button {
-    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+
+  .center {
+    margin: 100px auto;
     width: 100%;
-    align-items: center;
-    cursor: pointer;
-    justify-content: center;
   }
 
-
-  @media screen and (max-width: 1100px) {
-    .left {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 800px) {
-    
-    .center {
-      margin: 100px auto;
-      width: 100%;
-    }
-    .left {
-      display: none;
-    }
-    .right {
-      display: none;
-    }
+  .left {
+    display: none;
   }
 
-  input{
-    border: none;
+  .right {
+    display: none;
   }
-
-  h1{
-    margin: 0 0 0.5em 0;
-    color: #1e1e1e;
-  }
+}

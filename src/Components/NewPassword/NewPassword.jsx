@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { newPassword } from "../../Redux/Actions/User";
 import { validateNewPassword } from "../../Utils/validate";
 
-export default function NewPassword({ id }) {
+export default function NewPassword({ id, handleClose }) {
   const dispatch = useDispatch();
   const [data, setData] = useState({ password: "" });
   const admin = useSelector((state) => state.admin);
@@ -17,23 +17,28 @@ export default function NewPassword({ id }) {
     setErrors("");
   };
 
-  const handleSubmit = async (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-
     const error = validateNewPassword(data);
-
     if (error.error) {
       setErrors(error);
       setData({ password: "" });
     } else {
-     
-      const error = await dispatch(newPassword({ token: admin.token, id: id }));
+      const error = await dispatch(
+        newPassword({ token: admin.token, id: id, password: data.password })
+      );
       if (error) alert("Error, could not create user");
       else {
-        alert("Password create successfully");
-        setData({password:""})
+        alert("The New Password create successfully");
+        setData({ password: "" });
+        handleClose();
       }
     }
+  };
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    handleClose();
   };
 
   return (
@@ -59,7 +64,7 @@ export default function NewPassword({ id }) {
         )}
       </div>
       <div className={style.containerBtn}>
-        <button className={style.save} onClick={handleSubmit}>
+        <button className={style.save} onClick={handleSave}>
           <IoSaveOutline
             style={{
               width: "1.1em",
@@ -68,7 +73,7 @@ export default function NewPassword({ id }) {
           />
           Save
         </button>
-        <button className={style.close}>
+        <button className={style.close} onClick={handleCancel}>
           <IoCloseCircleOutline
             style={{
               width: "1.5em",

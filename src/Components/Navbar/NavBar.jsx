@@ -1,52 +1,76 @@
-import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAdmin } from "../../Redux/Actions/Auth";
+import Menu from "./Menu/Menu";
+import styles from "./NavBar.module.css";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
+import { Link } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+import logo from '../../Img/logo.jpeg'
 
 export default function NavbarAdmin() {
-  const session = useSelector((state) => state.admin.token);
   const dispatch = useDispatch();
-  
-  const handleLogout = () => {
+  const navigate = useNavigate();
+  const session = useSelector((store) => store.admin);
+  const [showMenu, setShowMenu] = useState(false);
+  const search = useLocation().pathname === "/user";
+
+  const logoutNav = () => {
     dispatch(logoutAdmin());
+    navigate("/login");
   };
-  // console.log(session)
+
   return (
-    <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">SU-SA</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="/user">User</Nav.Link>
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Nav>
-              {!session ? (
-                <Nav.Link href="/login">Login</Nav.Link>
-              ) : (
-                <Nav.Link onClick={handleLogout} href="/">
-                  Logout
-                </Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </>
+    <header className={`${styles.navbar}  `}>
+      <nav className={styles.nav}>
+        <div className={styles.left}>
+          <Link className={styles.brand} to="/">
+            <span>SU-SA</span>
+            <img src={logo} width="30px" alt="" />
+          </Link>
+          {search ? <SearchBar /> : ""}
+        </div>
+
+        <ul className={styles.menu}>
+          <Menu home />
+        </ul>
+
+        <div className={styles.right}>
+          {session ? (
+            <div className={styles.profile__container}>
+              <div
+                className={
+                  `${showMenu ? styles.show : styles.hide} ` +
+                  styles.profile__menu
+                }
+              >
+                <Menu column dashboard profile user />
+              </div>
+            </div>
+          ) : (
+            <NavLink
+              className={styles.signup}
+              activeClassName={styles.active}
+              to="/login"
+            >
+              Log In
+            </NavLink>
+          )}
+          {session ? (
+            <div className={styles.right}>
+              <button
+                className={`${styles.nav__link} ${styles.logout}`}
+                onClick={() => logoutNav()}
+              >
+                <FiLogOut />
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+      </nav>
+    </header>
   );
 }
