@@ -10,10 +10,11 @@
   max-width: 25em;
   margin: 0 auto;
   padding: 1em 1.5em;
-  
   background-color: #fff;
   border-radius: 1em;
   box-shadow: 0 0.25em 0.5em #0005;
+  resize: none;
+  border: none;
 }
 
 .wrapper>div {
@@ -22,6 +23,9 @@
   border: none;
 }
 
+.wrapper input {
+  border: none;
+}
 .wrapper label{
   font-family: "Roboto";
   padding: 0.75em;
@@ -43,31 +47,12 @@
   padding: 1em;
 }
 
-.container {
-  resize: none;
-  border: none;
-}
-
-.uploadImage {
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  max-height: 10rem;
-}
 
 .flex {
   width: 100%;
   display: flex;
   gap: 1em;
   align-items: center;
-}
-
-.dark {
-  background-color: #333;
-}
-
-.dark textarea {
-  background-color: #444;
 }
 
 .inputGroup {
@@ -92,6 +77,7 @@
   border: none;
   resize: none;
 }
+
 .inputGroup:focus-within {
   outline: 2px solid hsl(226deg, 100%, 70%);
 }

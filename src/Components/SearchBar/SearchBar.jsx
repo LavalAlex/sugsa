@@ -4,15 +4,14 @@ import style from "./SearchBar.module.css";
 import { BiSearch } from "react-icons/bi";
 import { searchUser } from "../../Redux/Actions/User";
 
-
 export default function SearchBar(props) {
   const dispatch = useDispatch();
 
-//   const users = useSelector((state) => state.usersReducer.users);
-//   const admin = useSelector((state) => state.adminReducer.admin);
-  
+  //   const users = useSelector((state) => state.usersReducer.users);
+  //   const admin = useSelector((state) => state.adminReducer.admin);
+
   const [input, setInput] = useState("");
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => dispatch(searchUser(input)), [input, dispatch]);
 
@@ -23,19 +22,20 @@ export default function SearchBar(props) {
   const handleList = (e) => {
     setShow(e);
   };
-  const handleBlur = ()=>{
-    setInput("")
-    
-  }
+  const handleBlur = () => {
+    setInput("");
+  };
   return (
     <label className={style.inputData}>
-      <BiSearch className={style.icon} />
+      <BiSearch className={style.icon} /> 
       <input
-        onBlur={() => handleList(false)}
-        onFocus={() => handleList(true)}
+        onBlur={() => handleList(true)}
+        onFocus={() => handleList(false)}
         onChange={handleChange}
-        placeholder="Search Users"
+        placeholder="Search Users... "
+        className={style.search}
       />
+
       {/* <UserList show={show} users={users} input={input} admin={admin} /> */}
     </label>
   );

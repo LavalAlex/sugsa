@@ -1,39 +1,31 @@
 .inputData {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin: 0;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    padding: 0 0.5rem;
-  }
-  
-.inputData:focus-within{
-  outline: 2px solid hsl(226deg, 100%, 70%);
-
-}
-
-.inputData:focus-within input{
-  /* border: none; */
-  /* border: solid white; */
-  font-family: "Roboto";
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
   padding: 0.5rem 0 0.5rem 0.2rem;
-  width: 100%;
-  font-size: 0.9rem;
-  border: none;
-  resize: none;
+   width: 10rem; 
 }
-  .icon {
-    width: 1.25em;
-    height: 1.25em;
-    color: #fff;
-  }
-  
+
+
 .inputData input{
   font-family: "Roboto";
-  padding: 0.5rem 0 0.5rem 0.2rem;
   width: 100%;
   font-size: 0.9rem;
-  border: none;
+  border: 0;
+  color: none;
   resize: none;
 }
+
+.inputData input:focus{
+  outline: none;
+}
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  color: #fff;
+}
+

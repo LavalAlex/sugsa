@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutAdmin } from "../../Redux/Actions/Auth";
 import Menu from "./Menu/Menu";
 import styles from "./NavBar.module.css";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
@@ -51,7 +51,7 @@ export default function NavbarAdmin() {
           ) : (
             <NavLink
               className={styles.signup}
-              activeClassName={styles.active}
+              // activeClassName={styles.active}
               to="/login"
             >
               Log In
@@ -71,6 +71,7 @@ export default function NavbarAdmin() {
           )}
         </div>
       </nav>
+      <Outlet/>
     </header>
   );
 }

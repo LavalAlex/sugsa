@@ -29,7 +29,7 @@ export default function Menu({ column, dashboard, profile, user, logout }) {
             className={`${styles.menu__link} ${
               path === "/user" ? styles.active : ""
             }`}
-            activeClassName={styles.active}
+            // activeClassName={styles.active}
             to="/user"
           >
             <FiUsers className={styles.icon} />
