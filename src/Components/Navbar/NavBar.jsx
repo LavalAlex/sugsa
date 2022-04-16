@@ -27,7 +27,7 @@ export default function NavbarAdmin() {
         <div className={styles.left}>
           <Link className={styles.brand} to="/">
             <span>SU-SA</span>
-            <img src={logo} width="30px" alt="" />
+            <img src={logo} className={styles.logo} alt="" />
           </Link>
           {search ? <SearchBar /> : ""}
         </div>

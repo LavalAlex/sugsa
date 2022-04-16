@@ -3,7 +3,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 
 import "./App.css";
 import LandingPage from "./Components/LandingPage/LandingPage";
-import Admin from "./Pages/Admin/Admin";
+import Login from "./Pages/Login/Login";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import User from "./Pages/User/User";
 
@@ -15,7 +15,7 @@ function App() {
       <NavbarAdmin />
       <Routes>
         <Route index path="/" element={<LandingPage />} />
-        <Route path="login" element={<Admin />} />
+        <Route path="login" element={<Login />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="user" element={<User />} />
       </Routes>

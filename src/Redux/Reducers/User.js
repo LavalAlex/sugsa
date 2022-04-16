@@ -9,7 +9,7 @@ import {
 const initialState = {
   users: [],
   roles: [],
-  userName:[]
+  userName: [],
 };
 
 export default function root(state = initialState, action) {
@@ -18,11 +18,14 @@ export default function root(state = initialState, action) {
       return {
         ...state,
         users: action.payload,
+        userName: action.payload,
       };
+
     case NEW_USER:
       return {
         ...state,
       };
+      
     case ALL_ROLES:
       return {
         ...state,
@@ -35,14 +38,19 @@ export default function root(state = initialState, action) {
       };
 
     case GET_USER_NAME:
-      const users = state.users
-      // console.log(users)
-      // console.log(action.payload)
-      const userFilter = users.filter(e => e.nombre.includes(action.payload))
-      return{
-        ...state,
-        users:userFilter
+      const users = state.userName;
+      if (action.payload) {
+        var userFilter = users.filter((e) =>
+          e.Nombre.toLowerCase().includes(action.payload)
+        );
+      } else {
+        userFilter = state.userName;
       }
+      return {
+        ...state,
+        users: userFilter,
+      };
+
     default:
       return state;
   }

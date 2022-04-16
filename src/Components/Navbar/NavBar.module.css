@@ -5,11 +5,12 @@
 }
 
 .navbar {
-  background: #fff;
+  background: rgb(26, 214, 226);
   position: sticky;
   width: 100%;
   z-index: 10;
   top: 0;
+  /* background-color: #888; */
 }
 
 .navbar input {
@@ -54,6 +55,14 @@
 .brand>img {
   /* width: 0.95em; */
   margin: 0 1em 0 0;
+  background: rgb(224, 217, 217);
+
+}
+
+.logo {
+  background: rgb(224, 217, 217);
+  color: rgb(224, 217, 217);
+  width: 30px;
 }
 
 .brand>span {

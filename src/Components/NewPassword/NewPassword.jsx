@@ -76,10 +76,11 @@ export default function NewPassword({ id, handleClose }) {
         <button className={style.close} onClick={handleCancel}>
           <IoCloseCircleOutline
             style={{
-              width: "1.5em",
-              height: "1.5em",
+              width: "1.1rem",
+              height: "1.1rem",
             }}
           />
+          Cancel
         </button>
       </div>
     </div>

@@ -75,8 +75,8 @@
 .left {
     position:absolute;
     display: flex;
-    left: 2rem;
-    top: 5rem;
+    left: 5.5rem;
+   top: 5rem;
     align-items:flex-start;
     gap: 1rem;
 }
