@@ -7,12 +7,14 @@ import { validateNewUser } from "../../Utils/validate";
 import { objNewUser } from "../../Utils/utils";
 import optionSelect from "../../Utils/select";
 import style from "./NewUser.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function NewUserCard() {
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.admin);
   const [optionsRoles, setOptionsRoles] = useState([]);
   const roles = useSelector((state) => state.users.roles);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(allRoles(admin.token));
@@ -75,6 +77,7 @@ export default function NewUserCard() {
           moduls: "",
           rol: [],
         });
+        navigate("/user");
       }
     }
   };
@@ -92,7 +95,7 @@ export default function NewUserCard() {
   return (
     <form className={style.container} onSubmit={(e) => handleSubmit(e)}>
       <div className={style.title}>
-      <h1>New User</h1>
+        <h1>New User</h1>
       </div>
       <label className={style.wrapper}>
         Name
@@ -139,7 +142,9 @@ export default function NewUserCard() {
       <label className={style.wrapper}>
         Password
         <div
-          className={`${style.inputGroup} ${errors.password ? style.error : ""} `}
+          className={`${style.inputGroup} ${
+            errors.password ? style.error : ""
+          } `}
         >
           <input
             value={data.password}
