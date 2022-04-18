@@ -4,6 +4,7 @@
   align-items: center;
   gap: 1.5rem;
   margin-top: 1.5rem;
+  margin-right: 4rem;
 }
 
 .menu__link {
@@ -42,7 +43,7 @@
 .menu__link:hover::after {
   display: block;
   bottom: -0.5em;
-  background-color: hsl(226deg, 100%, 70%);
+  background-color: rgb(255, 20, 150)
 }
 
 .icon {
@@ -87,7 +88,7 @@
   transform: translate(0, 0);
   width: 4px;
   border-radius: 0;
-  background-color: hsl(226deg, 100%, 70%);
+  background-color: rgb(255, 20, 150)
 }
 
 .menu__link.logout::after {
@@ -144,7 +145,7 @@
 }
 
 .active {
-  border-bottom: 2px solid hsl(226deg, 100%, 70%);
+  border-bottom: 2px solid rgb(255, 20, 150)
 }
 
 .counter {

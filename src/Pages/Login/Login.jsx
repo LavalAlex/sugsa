@@ -6,7 +6,8 @@ import styles from './Login.module.css'
 export default function Admin() {
   const admin = useSelector((state) => state.admin);
   const navitage = useNavigate()
-  return admin.token ? (
+  console.log(admin)
+  return admin.success ? (
     navitage('/dashboard')
   ) : (
     <div className={styles.container}>

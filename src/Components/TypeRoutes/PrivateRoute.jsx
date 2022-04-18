@@ -1,15 +1,9 @@
-import { Redirect, Route } from "react-router";
-import { isLogin } from "../../utils/session";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-function PrivateRoute({ component: Component, restricted, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        isLogin() ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
-  );
+function PrivateRoute() {
+  const admin = useSelector((state) => state.admin);
+  return admin?.success ? <Outlet /> : <Navigate to="/login" />;
 }
 
 export default PrivateRoute;

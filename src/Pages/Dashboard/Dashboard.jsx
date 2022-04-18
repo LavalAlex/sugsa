@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { allRoles, allUsers } from "../../Redux/Actions/User";
 import { getLocal } from "../../Utils/storage";
 
+import style from './Dashboard.module.css'
+
 export default function Dashboard() {
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.admin);
@@ -14,7 +16,7 @@ export default function Dashboard() {
 
 
   return (
-    <div>
+    <div className={style.container}>
       <div>Dashboard</div>
 
     </div>

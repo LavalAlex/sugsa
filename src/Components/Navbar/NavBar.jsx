@@ -12,7 +12,7 @@ import logo from '../../Img/logo.jpeg'
 export default function NavbarAdmin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const session = useSelector((store) => store.admin);
+  const session = useSelector((store) => store.admin.success);
   const [showMenu, setShowMenu] = useState(false);
   const search = useLocation().pathname === "/user";
 

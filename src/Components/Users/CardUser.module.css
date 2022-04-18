@@ -53,8 +53,16 @@
 
 .hide {
     display: none;
+    border: none;
+
 }
 
 .show {
     display: block;
+    border: none;
+
+}
+
+.newPass{
+    border: none;
 }

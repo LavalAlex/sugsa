@@ -42,7 +42,7 @@ export default function NewPassword({ id, handleClose }) {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <label className={style.wrapper}>
         New Password:
         <div className={style.inputGroup}>
