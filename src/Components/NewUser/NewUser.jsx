@@ -12,11 +12,11 @@ export default function NewUserCard() {
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.admin);
   const [optionsRoles, setOptionsRoles] = useState([]);
-  const roles = useSelector((state) => state.users.roles) ;
+  const roles = useSelector((state) => state.users.roles);
 
-  useEffect(()=>{
-    dispatch(allRoles(admin.token))
-  },[])
+  useEffect(() => {
+    dispatch(allRoles(admin.token));
+  }, []);
 
   const [errors, setErrors] = useState({
     name: "",
@@ -52,12 +52,12 @@ export default function NewUserCard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data.rol)
-    const { name, password, rol, moduls } = validateNewUser(data);
-    if (name || password || rol || moduls)
+    const { name, password, rol, moduls, email } = validateNewUser(data);
+    if (name || password || rol || moduls || email)
       setErrors((old) => ({
         ...old,
         name: name ? name : "",
+        email: email ? email : "",
         password: password ? password : "",
         rol: rol ? rol : "",
         moduls: moduls ? moduls : "",
@@ -65,7 +65,7 @@ export default function NewUserCard() {
     else {
       let newUser = objNewUser(data);
       const error = await dispatch(createUser(newUser));
-      if (error) alert("Error, could not create user");
+      if (error) return alert("Error, could not create user");
       else {
         alert("User create successfully");
         setData({
@@ -91,10 +91,14 @@ export default function NewUserCard() {
 
   return (
     <form className={style.container} onSubmit={(e) => handleSubmit(e)}>
-        <h1>New User</h1>
+      <div className={style.title}>
+      <h1>New User</h1>
+      </div>
       <label className={style.wrapper}>
         Name
-        <div className={style.inputGroup}>
+        <div
+          className={`${style.inputGroup} ${errors.name ? style.error : ""} `}
+        >
           <input
             value={data.name}
             onChange={handleChange}
@@ -104,23 +108,29 @@ export default function NewUserCard() {
             autoComplete="off"
           />
         </div>
-        {errors.name ? <span className={style.error}>{errors.name}</span> : ""}
+        {errors.name ? (
+          <span className={style.errorSpan}>{errors.name}</span>
+        ) : (
+          ""
+        )}
       </label>
 
       <label className={style.wrapper}>
         Email
-        <div className={style.inputGroup}>
+        <div
+          className={`${style.inputGroup} ${errors.email ? style.error : ""} `}
+        >
           <input
             value={data.email}
             onChange={handleChange}
             name="email"
-            type="email"
+            type="text"
             placeholder="Email..."
             autoComplete="off"
           />
         </div>
         {errors.email ? (
-          <span className={style.error}>{errors.email}</span>
+          <span className={style.errorSpan}>{errors.email}</span>
         ) : (
           ""
         )}
@@ -128,7 +138,9 @@ export default function NewUserCard() {
 
       <label className={style.wrapper}>
         Password
-        <div className={style.inputGroup}>
+        <div
+          className={`${style.inputGroup} ${errors.password ? style.error : ""} `}
+        >
           <input
             value={data.password}
             onChange={handleChange}
@@ -139,7 +151,7 @@ export default function NewUserCard() {
           />
         </div>
         {errors.password ? (
-          <span className={style.error}>{errors.password}</span>
+          <span className={style.errorSpan}>{errors.password}</span>
         ) : (
           ""
         )}
@@ -147,7 +159,9 @@ export default function NewUserCard() {
 
       <label className={style.wrapper}>
         Moduls
-        <div className={style.inputGroup}>
+        <div
+          className={`${style.inputGroup} ${errors.moduls ? style.error : ""} `}
+        >
           <input
             value={data.moduls}
             onChange={handleChange}
@@ -158,7 +172,7 @@ export default function NewUserCard() {
           />
         </div>
         {errors.moduls ? (
-          <span className={style.error}>{errors.moduls}</span>
+          <span className={style.errorSpan}>{errors.moduls}</span>
         ) : (
           ""
         )}
@@ -172,7 +186,7 @@ export default function NewUserCard() {
           isMulti
         />
       </label>
-      {errors.rol ? <span className={style.error}>{errors.rol}</span> : ""}
+      {errors.rol ? <span className={style.errorSpan}>{errors.rol}</span> : ""}
       <button className={style.submit} type="submit">
         Create
       </button>

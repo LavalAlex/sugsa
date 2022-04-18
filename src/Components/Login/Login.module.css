@@ -44,7 +44,15 @@
   ;
 }
 
-.inputGroup:focus-within.error {
+.inputGroup:focus-within.error{
+  margin-top: 0.2rem;
+  color: #f33;
+  outline: 2px solid red;
+}
+
+.error {
+  margin-top: 0.2rem;
+  color: #f33;
   outline: 2px solid red;
 }
 
@@ -102,8 +110,8 @@ form label{
 
 }
 
-.error {
-  margin-top: 1rem;
+.errorSpan {
+  margin-top: 0.2rem;
   color: #f33;
 }
 

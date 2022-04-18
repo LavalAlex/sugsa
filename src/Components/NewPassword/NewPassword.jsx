@@ -43,9 +43,11 @@ export default function NewPassword({ id, handleClose }) {
 
   return (
     <div className={style.container}>
-      <label className={style.wrapper}>
+      <label >
         New Password:
-        <div className={style.inputGroup}>
+        <div className={`${style.inputGroup} ${
+              errors.error ? style.error : ""
+            } `}>
           <input
             value={data.password}
             onChange={handleChange}
@@ -56,9 +58,9 @@ export default function NewPassword({ id, handleClose }) {
           />
         </div>
       </label>
-      <div>
+      <div className={style.wrapper}>
         {errors.error ? (
-          <span className={style.error}>{errors.error}</span>
+          <span className={style.errorSpan}>{errors.error}</span>
         ) : (
           ""
         )}

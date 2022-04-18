@@ -31,7 +31,7 @@ export default function CardUser({ name, email, rol, id }) {
   const handleClose = ()=>{
     setNewPass(false)
   }
-  console.log(rol)
+
   return (
     <div className={styles.container}>
       <div className={styles.options}>

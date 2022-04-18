@@ -8,9 +8,9 @@ export const NEW_PASSWORD = "newPassword";
 export const GET_USER_NAME = "getUSerName";
 
 //URL API
-export const URLCREATEUSER = "http://181.15.255.130:3001/api/auth/new";
-export const URLALLUSER = "http://181.15.255.130:3001/api/auth/userall";
-export const URLALLROLES = "http://181.15.255.130:3001/api/roles";
-export const URLNEWPASSWORD = "http://181.15.255.130:3001/api/auth/renewpassword";
-// export const URLLOGIN = "http://181.15.255.130:3001/api/auth";
-export const URLLOGIN = "http://localhost:3001/auth/login"
+export const URLCREATEUSER = "http://sugsa.dyndns.org:33001/api/auth/new";
+export const URLALLUSER = "http://sugsa.dyndns.org:33001/api/auth/userall";
+export const URLALLROLES = "http://sugsa.dyndns.org:33001/api/roles";
+export const URLNEWPASSWORD = "http://sugsa.dyndns.org:33001/api/auth/renewpassword";
+export const URLLOGIN = "http://sugsa.dyndns.org:33001/api/auth";
+// export const URLLOGIN = "http://localhost:3001/auth/login"

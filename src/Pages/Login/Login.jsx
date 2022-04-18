@@ -7,7 +7,7 @@ export default function Admin() {
   const admin = useSelector((state) => state.admin);
   const navitage = useNavigate()
   console.log(admin)
-  return admin.success ? (
+  return admin.name ? (
     navitage('/dashboard')
   ) : (
     <div className={styles.container}>

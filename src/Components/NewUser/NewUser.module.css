@@ -25,6 +25,7 @@
 
 .wrapper input {
   border: none;
+  outline: 0;
 }
 .wrapper label{
   font-family: "Roboto";
@@ -36,9 +37,7 @@
   resize: none;
 }
 
-.error {
-  color: #f33;
-}
+
 
 .submit {
   border: none;
@@ -60,21 +59,21 @@
   align-items: center;
   font-size: 0.9rem;
   width: 100%;
-  border: 1px solid #ccc;
+  outline: 1px solid #ccc;
   background-color: #fff;
   padding: 0 0 0 1em;
   border-radius: 4px;
   overflow: hidden;
   gap: 2rem;
+  
 }
 
 .inputGroup input{
   font-family: "Roboto";
   padding: 0.75em;
-  border: none;
+
   width: 100%;
   font-size: 0.9rem;
-  border: none;
   resize: none;
 }
 
@@ -82,7 +81,15 @@
   outline: 2px solid hsl(226deg, 100%, 70%);
 }
 
-.inputGroup:focus-within.error {
+.inputGroup:focus-within.error{
+  /* margin-top: 0.2rem; */
+  color: #f33;
+  outline: 2px solid red;
+}
+
+.error {
+  margin-top: 0.2rem;
+  color: #f33;
   outline: 2px solid red;
 }
 
@@ -97,7 +104,16 @@ form button[type="submit"]:hover {
   color: black
   
 }
-form > h1 {
-  margin: 0 0 0.5em 5rem;
+
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.errorSpan {
+  margin-top: 0.2rem;
+  color: #f33;
 }

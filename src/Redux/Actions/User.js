@@ -14,11 +14,9 @@ import {
 export function allUsers(token) {
   return async (dispatch) => {
     try {
-      // const { data } = await axios.get(URLALLUSER, {
-      //   headers: { Authorization: `Bearer ${token}` },
-      // });
-
-      const {data} = await axios.get('http://localhost:3001/user/allusers')
+      const { data } = await axios.get(URLALLUSER, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       dispatch({ type: ALL_USERS, payload: data.usuariosAll });
     } catch (e) {
       console.log(e.message);
