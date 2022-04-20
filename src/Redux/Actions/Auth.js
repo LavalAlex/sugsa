@@ -6,10 +6,11 @@ export function loginAdmin(admin) {
     try {
       const response = await axios.post(URLLOGIN, admin);
       dispatch({ type: LOGIN_ADMIN, payload: response });
-    } catch (e) {
-      console.log(e);
+    } catch (e){
+      console.log(e.response.data)
+      return e.response.status
     }
-  };
+};
 }
 
 export function logoutAdmin() {

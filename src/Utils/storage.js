@@ -8,7 +8,7 @@ export function getLocal(name) {
 }
 
 export function saveLocal(name, value) {
-  const expires = new Date(Date.now() + 1 * 3600 * 100);
+  const expires = new Date(Date.now() + 8 * 3600 * 1000);
   value.expires = expires
   if (!name || !value) return {};
   localStorage.setItem(name, JSON.stringify(value));

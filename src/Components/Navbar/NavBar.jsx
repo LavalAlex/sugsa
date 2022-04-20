@@ -29,7 +29,7 @@ export default function NavbarAdmin() {
             <span>SU-SA</span>
             <img src={logo} className={styles.logo} alt="" />
           </Link>
-          {search ? <SearchBar /> : ""}
+          {/* {search ? <SearchBar /> : ""} */}
         </div>
 
         <ul className={styles.menu}>

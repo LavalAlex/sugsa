@@ -8,16 +8,18 @@ import {
   validateLogin,
   validateNewPassword,
 } from "../../Utils/validate";
+import { statusMsg } from "../../Utils/status";
 
 export default function AdminLogin() {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({
     email: "",
     password: "",
+    code:""
   });
   const [input, setInput] = useState({
-    email: "lavalalexander@gmail.com",
-    password: "123456",
+    email: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -28,7 +30,7 @@ export default function AdminLogin() {
     setErrors("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = validateLogin(input);
     if (email || password) {
@@ -44,7 +46,12 @@ export default function AdminLogin() {
             password: "",
           }));
     } else {
-      dispatch(loginAdmin(input));
+      const code = statusMsg(await dispatch(loginAdmin(input)));
+      console.log(code)
+      setErrors((old)=>({
+        ...old,
+        code: code.error? code.error : ""
+      }))
     }
   };
 
@@ -95,6 +102,13 @@ export default function AdminLogin() {
         <div>
           {errors.password ? (
             <span className={style.errorSpan}>{errors.password}</span>
+          ) : (
+            ""
+          )}
+        </div>
+        <div>
+          {errors.code ? (
+            <span className={style.errorSpan}>{errors.code}</span>
           ) : (
             ""
           )}

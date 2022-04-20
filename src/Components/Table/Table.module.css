@@ -1,0 +1,131 @@
+.table {
+    flex-direction: row;
+    min-width: 1000px;
+    /* align-content: center; */
+    /* align-items: center; */
+    
+}
+.row{
+    display: flex;
+    /* justify-content: center; */
+}
+
+.head{
+    display: flex;
+    background-color: hsl(220, 5%, 89%);
+    
+}
+.bodyUser{
+    /* background-color: rgb(190, 190, 214); */
+    display: flex;
+    flex-direction: row;
+    color: blue;
+    padding-left: 1rem;
+    gap: 1rem;
+    width: 100px;
+}
+
+.tableContainer {
+    margin: 10px 10px;
+    /* max-width: 950px; */
+    border: 0.1em solid gray;
+    border-radius: .5rem;
+    align-items: center;
+}
+
+.tableHeaderCell {
+    font-weight: bold;
+    color: white;
+}
+
+.avatar {
+    background-color: grey;
+    color: blue;
+}
+
+.name {
+    font-weight: bold;
+    color: black;
+    /* margin-left: 5rem; */
+}
+
+
+.TitleUser{
+    display: flex;
+    margin-left: 2rem;
+    gap: 1rem;
+}
+
+.TitleUser span{
+    color: black;
+    font-size:large;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: .5rem;
+    font-weight: 900;
+ 
+}
+
+.TitleRol{
+    display: flex;
+    margin-left: 4rem;
+}
+
+.TitleRol span {
+    color: black;
+    font-size:large;
+    font-weight: 900;
+ 
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin-top: .5rem; */
+}
+.rol{
+    background-color: hsl(220, 5%, 89%);
+    /* width: 300px; */
+    /* text-align: center; */
+}
+
+.bodyRol{
+    /* background-color: rgb(135, 135, 243); */
+    display: flex;
+    color: rgb(42, 165, 73);
+    width: 600px;
+}
+
+
+.btn{
+    
+    /* background-color: #4a9bbd; */
+    width: 30px;
+    cursor: pointer;
+    border: none;
+}
+.btn button{
+    background-color: hsl(220, 5%, 89%);
+    cursor: pointer;
+    border: none;
+}
+.btn button:hover{
+    /* outline: 2px solid hsl(226deg, 100%, 70%) !important; */
+    color: hsl(226deg, 100%, 70%);
+}
+
+.btnKey{
+    border: none;
+    width: 1px;
+    /* color: white; */
+}
+.IKey{
+    /* color: black; */
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+
+}
+
+.btnKey:hover{
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    color: hsl(226deg, 100%, 70%);
+}
+

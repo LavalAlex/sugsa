@@ -56,6 +56,7 @@
   /* width: 0.95em; */
   margin: 0 1em 0 0;
   background: rgb(224, 217, 217);
+  border-radius: 50%;
 
 }
 
@@ -68,7 +69,7 @@
 .brand>span {
   width: 3rem;
   font-weight: 300;
-  color: #aaa;
+  color: black;
 
 }
 

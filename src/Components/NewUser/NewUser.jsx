@@ -98,7 +98,7 @@ export default function NewUserCard() {
         <h1>New User</h1>
       </div>
       <label className={style.wrapper}>
-        Name
+        <h5>Name</h5>
         <div
           className={`${style.inputGroup} ${errors.name ? style.error : ""} `}
         >
@@ -119,7 +119,7 @@ export default function NewUserCard() {
       </label>
 
       <label className={style.wrapper}>
-        Email
+        <h5>Email</h5>
         <div
           className={`${style.inputGroup} ${errors.email ? style.error : ""} `}
         >
@@ -140,7 +140,7 @@ export default function NewUserCard() {
       </label>
 
       <label className={style.wrapper}>
-        Password
+        <h5>Password</h5>
         <div
           className={`${style.inputGroup} ${
             errors.password ? style.error : ""
@@ -163,7 +163,7 @@ export default function NewUserCard() {
       </label>
 
       <label className={style.wrapper}>
-        Moduls
+        <h5>Moduls</h5>
         <div
           className={`${style.inputGroup} ${errors.moduls ? style.error : ""} `}
         >

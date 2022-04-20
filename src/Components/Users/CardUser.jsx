@@ -7,7 +7,7 @@ import NewPassword from "../NewPassword/NewPassword";
 
 import styles from "./CardUser.module.css";
 
-export default function CardUser({ name, email, rol, id }) {
+export default function CardUser({ name, email, rol, id, createUser }) {
   const [editMode, setEditMode] = useState(false);
   const [options, setOptions] = useState(false);
   const [newPass, setNewPass] = useState(false);

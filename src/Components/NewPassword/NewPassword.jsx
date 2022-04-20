@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { newPassword } from "../../Redux/Actions/User";
 import { validateNewPassword } from "../../Utils/validate";
 
-export default function NewPassword({ id, handleClose }) {
+export default function NewPassword({ name, email, id, handleClose }) {
   const dispatch = useDispatch();
   const [data, setData] = useState({ password: "" });
   const admin = useSelector((state) => state.admin);
@@ -43,11 +43,20 @@ export default function NewPassword({ id, handleClose }) {
 
   return (
     <div className={style.container}>
-      <label >
-        New Password:
-        <div className={`${style.inputGroup} ${
-              errors.error ? style.error : ""
-            } `}>
+      <div className={style.title}>
+        <h1>New Password</h1>
+      </div>
+      <div className={style.data}>
+        <h5>Name:</h5>
+        <div>{name}</div>
+        <h5>Email:</h5>
+        <div>{email}</div>
+      </div>
+      <label>
+        <h5>New Password:</h5>
+        <div
+          className={`${style.inputGroup} ${errors.error ? style.error : ""} `}
+        >
           <input
             value={data.password}
             onChange={handleChange}

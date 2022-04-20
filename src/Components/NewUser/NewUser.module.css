@@ -8,7 +8,7 @@
   flex-direction: column;
   width: 25em;
   max-width: 25em;
-  margin: 0 auto;
+ 
   padding: 1em 1.5em;
   background-color: #fff;
   border-radius: 1em;
@@ -17,27 +17,10 @@
   border: none;
 }
 
-.wrapper>div {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
 .wrapper input {
   border: none;
   outline: 0;
 }
-.wrapper label{
-  font-family: "Roboto";
-  padding: 0.75em;
-  border: none;
-  width: 100%;
-  font-size: 0.9rem;
-  border: none;
-  resize: none;
-}
-
-
 
 .submit {
   border: none;
@@ -46,23 +29,14 @@
   padding: 1em;
 }
 
-
-.flex {
-  width: 100%;
-  display: flex;
-  gap: 1em;
-  align-items: center;
-}
-
 .inputGroup {
   display: flex;
   align-items: center;
   font-size: 0.9rem;
-  width: 100%;
-  outline: 1px solid #ccc;
+  width: 15rem;
+  border-bottom: 1px solid #ccc;
   background-color: #fff;
   padding: 0 0 0 1em;
-  border-radius: 4px;
   overflow: hidden;
   gap: 2rem;
   
@@ -70,27 +44,26 @@
 
 .inputGroup input{
   font-family: "Roboto";
-  padding: 0.75em;
-
-  width: 100%;
+  padding-left: 0.75em;
+  width: 15rem;
   font-size: 0.9rem;
   resize: none;
 }
 
 .inputGroup:focus-within {
-  outline: 2px solid hsl(226deg, 100%, 70%);
+  border-bottom: 2px solid hsl(226deg, 100%, 70%);
 }
 
 .inputGroup:focus-within.error{
   /* margin-top: 0.2rem; */
   color: #f33;
-  outline: 2px solid red;
+  border-bottom: 2px solid red;
 }
 
 .error {
   margin-top: 0.2rem;
   color: #f33;
-  outline: 2px solid red;
+  border-bottom: 2px solid red;
 }
 
 form button[type="submit"] {
