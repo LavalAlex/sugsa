@@ -68,22 +68,23 @@
 
 .brand>span {
   width: 3rem;
-  font-weight: 300;
+  font-weight: 500;
   color: black;
-
+margin-right: 1rem;
+margin-left: .5rem;
 }
 
 .menu {
   display: flex;
   position: relative;
-  gap: 1em;
+  /* gap: 1em; */
 }
 
 .right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1em;
+  /* gap: 1em; */
 }
 
 .nav__link {

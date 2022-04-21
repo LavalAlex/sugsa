@@ -11,6 +11,7 @@ export default function Menu({ column, dashboard, profile, user, logout }) {
       {!dashboard ? (
         <li>
           <NavLink
+          title="Dashboard"
             className={`${styles.menu__link} ${
               path === "/dashboard" ? styles.active : ""
             }`}
@@ -23,7 +24,7 @@ export default function Menu({ column, dashboard, profile, user, logout }) {
         <></>
       )}
 
-      {!user ? (
+      {/* {!user ? (
         <li>
           <NavLink
             className={`${styles.menu__link} ${
@@ -37,8 +38,8 @@ export default function Menu({ column, dashboard, profile, user, logout }) {
         </li>
       ) : (
         <></>
-      )}
-
+      )} */}
+{/* 
       {!profile ? (
         <li>
           <NavLink
@@ -52,7 +53,7 @@ export default function Menu({ column, dashboard, profile, user, logout }) {
         </li>
       ) : (
         <></>
-      )}
+      )} */}
     </ul>
   );
 }

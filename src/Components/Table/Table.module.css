@@ -28,9 +28,12 @@
 .tableContainer {
     margin: 10px 10px;
     /* max-width: 950px; */
-    border: 0.1em solid gray;
+    /* border: 0.1em solid gray; */
     border-radius: .5rem;
     align-items: center;
+    background-color: hsl(240, 100%, 100%);
+    box-shadow: 0 0.25em 0.5em #0005;
+
 }
 
 .tableHeaderCell {
@@ -67,7 +70,8 @@
 
 .TitleRol{
     display: flex;
-    margin-left: 4rem;
+    margin-left: 8rem;
+    /* justify-content: center; */
 }
 
 .TitleRol span {
@@ -112,7 +116,7 @@
 .btnKey{
     border: none;
     width: 1px;
-    /* color: white; */
+    background-color: white;
 }
 .IKey{
     /* color: black; */
@@ -127,5 +131,10 @@
     height: 2em;
     cursor: pointer;
     color: hsl(226deg, 100%, 70%);
+}
+
+.notFound{
+    display: flex;
+    justify-content: center;
 }
 

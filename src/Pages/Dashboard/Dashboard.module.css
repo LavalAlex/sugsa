@@ -1,5 +1,86 @@
-.container{
+.container {
+    /* background-color: #888; */
     display: flex;
-    flex-direction: row;
+    /* flex-direction:row; */
+    /* margin-top: 2rem;     */
     justify-content: center;
+    width: 100%;
+    min-height:700px;
+    background-color: hsl(224, 18%, 12%);
+}
+
+.containerNewUser {
+    padding-right: 0
+}
+
+.newUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 10;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    min-width: 10rem;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0 auto 2rem auto;
+    background-color: #000a;
+
+}
+
+.newUserBtn button {
+    margin-top: 4%;
+    width: 18vw;
+    height: 6vh;
+    background-color: #4a9bbd;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    font: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+
+.newUserOpen {
+    border-radius: 5rem;
+    margin: 1rem 0 0 0;
+    background-color: #ffffff;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+
+}
+
+.createUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    text-align: left;
+    gap: 0.5em;
+    border-radius: 5em;
+    background-color: transparent;
+    border: none;
+    outline: 2px solid #aaa !important;
+    font-size: 1rem;
+    color: #888;
+    height: 2.5rem;
+    min-width: 200px;
+}
+
+.createUser:hover {
+    outline: 2px solid hsl(226deg, 100%, 70%) !important;
+    color: hsl(226deg, 100%, 70%);
+}
+
+.left {
+    position: fixed;
+    display: flex;
+    left: 5.5rem;
+    top: 5rem;
+    align-items: flex-start;
+    gap: 1rem;
 }

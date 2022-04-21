@@ -1,8 +1,8 @@
 .container {
   --p: 5em;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 54%;
+  left: 25%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
@@ -12,8 +12,10 @@
   background-color: #fff;
   margin: 0 auto;
   overflow: hidden;
-  box-shadow: 0 0.25em 1em #0002;
-  border: 1px solid black;
+  box-shadow: 0.3em 0.25em 0.5em 0em #0005;
+
+  /* box-shadow: 0.9rem 0.1rem 0.5rem 0.5rem #0002; */
+  /* border: 0.2px solid #0008; */
   max-width: 450px;
 }
 
@@ -24,7 +26,11 @@
 
 
 .container>form>h1 {
-  align-self: center;
+  /* align-self: center; */
+  justify-content: center;
+  padding-left: 2rem;
+  border-bottom: 1px solid #1e1e1e;
+
 }
 
 .inputGroup {
@@ -40,7 +46,7 @@
 }
 
 .inputGroup:focus-within {
-  outline: 2px solid hsl(226deg, 100%, 70%);
+  outline: 2px solid rgb(131, 58, 180);
   ;
 }
 
@@ -81,6 +87,8 @@ form label{
 }
 .inputGroup :focus input{
   border: none;
+  font-family: "Roboto";
+
 }
 .buttonContainer {
   width: 100%;
@@ -94,7 +102,7 @@ form label{
   border-radius: 5em;
   border: none;
   color: #fff;
-  background-color: hsl(226deg, 100%, 70%);
+  background-color: rgb(131, 58, 180);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -135,4 +143,63 @@ form label{
   .right {
     display: none;
   }
+}
+
+
+
+
+
+.inputGroupPass {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 0 0 0 1em;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.inputGroupPass .keyEye{
+  margin-right: 1rem;
+  width: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+
+.inputGroupPass:focus-within {
+  outline: 2px solid rgb(131, 58, 180);
+  ;
+}
+.inputGroupPass:focus-within .keyEye{
+  color: black;
+}
+
+.inputGroupPass:focus-within .keyEye :hover{
+  color: hsl(226deg, 100%, 70%);
+}
+
+
+.inputGroupPass:focus-within.error{
+  margin-top: 0.2rem;
+  color: #f33;
+  outline: 2px solid red;
+}
+
+.inputGroupPass input {
+  font-family: "Roboto";
+  padding: 0.75em;
+  border: none;
+  width: 100%;
+  font-size: 0.9rem;
+  border: none;
+  resize: none;
+  outline: 0;
+}
+.inputGroupPass :focus input{
+  border: none;
+  font-family: "Roboto";
+
 }

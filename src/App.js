@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import LandingPage from "./Components/LandingPage/LandingPage";
+import LandingPage from "./Pages/Landing/LandingPage";
 import Login from "./Pages/Login/Login";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import User from "./Pages/User/User";

@@ -8,7 +8,7 @@
   flex-direction: column;
   width: 25em;
   max-width: 25em;
- 
+
   padding: 1em 1.5em;
   background-color: #fff;
   border-radius: 1em;
@@ -39,10 +39,10 @@
   padding: 0 0 0 1em;
   overflow: hidden;
   gap: 2rem;
-  
+
 }
 
-.inputGroup input{
+.inputGroup input {
   font-family: "Roboto";
   padding-left: 0.75em;
   width: 15rem;
@@ -51,10 +51,12 @@
 }
 
 .inputGroup:focus-within {
-  border-bottom: 2px solid hsl(226deg, 100%, 70%);
+  /* border-bottom: 2px solid hsl(226deg, 100%, 70%); */
+  border-bottom: 2px solid rgb(131, 58, 180);
+
 }
 
-.inputGroup:focus-within.error{
+.inputGroup:focus-within.error {
   /* margin-top: 0.2rem; */
   color: #f33;
   border-bottom: 2px solid red;
@@ -69,16 +71,22 @@
 form button[type="submit"] {
   border-radius: 5em;
   border: none;
-  color: #fff;
-  background-color:  hsl(226deg, 100%, 70%);
+  /* background-color:  hsl(226deg, 100%, 70%); */
+  background-color: rgb(131, 58, 180);
+  background: linear-gradient(90deg, #c084fc 0%, #ec4899 50%, #ef4444 100%);
+
+  transition: all 0.3s ease-in-out;
+
+  color: black;
 }
 
 form button[type="submit"]:hover {
-  color: black
-  
+  color: #fff;
+  outline: 2px solid #1e1e1e !important;
+
 }
 
-.title{
+.title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,4 +97,52 @@ form button[type="submit"]:hover {
 .errorSpan {
   margin-top: 0.2rem;
   color: #f33;
+}
+
+.keyEye {
+  position: absolute;
+  color: white;
+  margin-left: 12rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+
+.inputGroupPass {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  width: 15rem;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  padding: 0 0 0 1em;
+  overflow: hidden;
+  gap: 2rem;
+}
+
+.inputGroupPass input {
+  font-family: "Roboto";
+  padding-left: 0.75em;
+  width: 15rem;
+  font-size: 0.9rem;
+  resize: none;
+}
+
+.inputGroupPass:focus-within {
+  /* border-bottom: 2px solid hsl(226deg, 100%, 70%); */
+  border-bottom: 2px solid rgb(131, 58, 180);
+}
+
+.inputGroupPass:focus-within .keyEye {
+  color: #1e1e1e;
+}
+
+.inputGroupPass:focus-within .keyEye:hover {
+  color: hsl(226deg, 100%, 70%);
+}
+
+.inputGroupPass:focus-within.error {
+  /* margin-top: 0.2rem; */
+  color: #f33;
+  border-bottom: 2px solid red;
 }

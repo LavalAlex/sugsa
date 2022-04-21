@@ -21,6 +21,7 @@ export default function CardUser({ name, email, rol, id, createUser }) {
   useEffect(()=>{
     setRoles(rolName(rol))
   },[])
+  
   const handleOptions = () => setOptions((old) => !old);
 
   const handleNewPass = (e)=>{

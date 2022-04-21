@@ -5,9 +5,10 @@ import { allRoles, createUser } from "../../Redux/Actions/User";
 
 import { validateNewUser } from "../../Utils/validate";
 import { objNewUser } from "../../Utils/utils";
-import optionSelect from "../../Utils/select";
+import { optionSelect } from "../../Utils/select";
 import style from "./NewUser.module.css";
 import { useNavigate } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
 
 export default function NewUserCard() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function NewUserCard() {
   const [optionsRoles, setOptionsRoles] = useState([]);
   const roles = useSelector((state) => state.users.roles);
   const navigate = useNavigate();
+  const [keyOn, setKeyOn] = useState(false);
 
   useEffect(() => {
     dispatch(allRoles(admin.token));
@@ -142,7 +144,7 @@ export default function NewUserCard() {
       <label className={style.wrapper}>
         <h5>Password</h5>
         <div
-          className={`${style.inputGroup} ${
+          className={`${style.inputGroupPass} ${
             errors.password ? style.error : ""
           } `}
         >
@@ -150,9 +152,15 @@ export default function NewUserCard() {
             value={data.password}
             onChange={handleChange}
             name="password"
-            type="password"
+            type={keyOn ? "text" : "password"}
             placeholder="Password..."
             autoComplete="off"
+          />
+          <FaEye
+            className={style.keyEye}
+            onClick={(e) => {
+              setKeyOn((old) => !old);
+            }}
           />
         </div>
         {errors.password ? (
@@ -174,6 +182,7 @@ export default function NewUserCard() {
             type="text"
             placeholder="Moduls..."
             autoComplete="off"
+            
           />
         </div>
         {errors.moduls ? (

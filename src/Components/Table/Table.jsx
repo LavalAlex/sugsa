@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Table,
@@ -20,6 +20,7 @@ import { IoConstructOutline, IoKey, IoPersonAdd } from "react-icons/io5";
 import { RiUserAddLine } from "react-icons/ri";
 import NewPassword from "../NewPassword/NewPassword";
 import SearchBar from "../SearchBar/SearchBar";
+import rolName from "../../Utils/rol";
 // import { createUser } from "../../Redux/Actions/User";
 
 export default function Tables({ user, createUser, setPassowrd, newPassword }) {
@@ -27,13 +28,18 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   // const [newPassword, setNewPassword] = useState(false);
   // const [userPass, setUserPass] = useState({ name: "", email: "", id: "" });
+  const [usersRol, setUsersRol] = useState([]);
+
+  useEffect(() => {
+    setUsersRol(rolName(user));
+  }, [user]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
+    setRowsPerPage(event.target.value);
     setPage(0);
   };
   const handleCreateUser = () => {
@@ -50,7 +56,7 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
     }));
     newPassword(true);
   };
-  // console.log(userPass);
+  console.log(user);
   return (
     <TableContainer className={style.tableContainer}>
       <Table className={style.table}>
@@ -86,7 +92,7 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
             ? user
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, i) => (
-                  <TableRow key={row.Nombre}>
+                  <TableRow key={row.id}>
                     <TableCell>
                       <Grid>
                         <div className={style.bodyUser}>
@@ -143,7 +149,10 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
             />
           </TableFooter>
         ) : (
-          ""
+          <div className={style.notFound}>
+          <span>Not Found</span>
+
+          </div>
         )}
       </Table>
     </TableContainer>

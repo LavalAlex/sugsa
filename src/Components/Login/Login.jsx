@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle, FaKey } from "react-icons/fa";
+import { FaUserCircle, FaKey, FaEye } from "react-icons/fa";
 import { loginAdmin } from "../../Redux/Actions/Auth";
 import style from "./Login.module.css";
 import {
@@ -12,6 +12,7 @@ import { statusMsg } from "../../Utils/status";
 
 export default function AdminLogin() {
   const dispatch = useDispatch();
+  const [keyOn, setKeyOn] = useState(false)
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -60,7 +61,7 @@ export default function AdminLogin() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <h1>Login Admin</h1>
         <label>
-          Email
+         <h5>Email</h5> 
           <div className={`${style.inputGroup} ${
               errors.email ? style.error : ""
             } `}>
@@ -70,7 +71,7 @@ export default function AdminLogin() {
               value={input.email}
               name="email"
               onChange={(e) => handleChange(e)}
-              placeholder="Enter username"
+              placeholder="Enter email"
               autoComplete="off"
             />
           </div>
@@ -83,20 +84,21 @@ export default function AdminLogin() {
           )}
         </div>
         <label>
-          Password
+         <h5>Password</h5>
           <div
-            className={`${style.inputGroup} ${
+            className={`${style.inputGroupPass} ${
               errors.password ? style.error : ""
             } `}
           >
             <FaKey />
             <input
-              type="password"
+              type={keyOn? "text": "password"}
               value={input.password}
               name="password"
               onChange={(e) => handleChange(e)}
               placeholder="Enter password"
             />
+          <FaEye className={style.keyEye} onClick={(e)=>{setKeyOn((old) => !old)}}/>
           </div>
         </label>
         <div>

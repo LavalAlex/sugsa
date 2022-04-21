@@ -6,7 +6,7 @@ import styles from "./NavBar.module.css";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
-import { FiLogOut } from "react-icons/fi";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 import logo from '../../Img/logo.jpeg'
 
 export default function NavbarAdmin() {
@@ -26,7 +26,7 @@ export default function NavbarAdmin() {
       <nav className={styles.nav}>
         <div className={styles.left}>
           <Link className={styles.brand} to="/">
-            <span>SU-SA</span>
+            <span>SUGSA</span>
             <img src={logo} className={styles.logo} alt="" />
           </Link>
           {/* {search ? <SearchBar /> : ""} */}
@@ -45,21 +45,30 @@ export default function NavbarAdmin() {
                   styles.profile__menu
                 }
               >
-                <Menu column dashboard profile user />
+                <Menu column dashboard user />
               </div>
             </div>
           ) : (
             <NavLink
-              className={styles.signup}
+              // className={styles.signup}
               // activeClassName={styles.active}
               to="/login"
             >
-              Log In
+
+          <button
+              title="Log In"
+                className={`${styles.nav__link} ${styles.sigup}`}
+                onClick={() => logoutNav()}
+              >
+            <FiLogIn/>
+              
+              </button>
             </NavLink>
           )}
           {session ? (
             <div className={styles.right}>
               <button
+              title="Log Out"
                 className={`${styles.nav__link} ${styles.logout}`}
                 onClick={() => logoutNav()}
               >
