@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Table,
   TableBody,
@@ -7,27 +6,23 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
   Avatar,
   Grid,
   Typography,
   TablePagination,
   TableFooter,
 } from "@material-ui/core";
-
-import style from "./Table.module.css";
-import { IoConstructOutline, IoKey, IoPersonAdd } from "react-icons/io5";
-import { RiUserAddLine } from "react-icons/ri";
-import NewPassword from "../NewPassword/NewPassword";
+import { IoPersonAdd } from "react-icons/io5";
 import SearchBar from "../SearchBar/SearchBar";
 import rolName from "../../Utils/rol";
-// import { createUser } from "../../Redux/Actions/User";
+import { FaUserEdit } from "react-icons/fa";
+
+import style from "./Table.module.css";
+
 
 export default function Tables({ user, createUser, setPassowrd, newPassword }) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  // const [newPassword, setNewPassword] = useState(false);
-  // const [userPass, setUserPass] = useState({ name: "", email: "", id: "" });
   const [usersRol, setUsersRol] = useState([]);
 
   useEffect(() => {
@@ -56,16 +51,18 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
     }));
     newPassword(true);
   };
-  console.log(user);
+
   return (
     <TableContainer className={style.tableContainer}>
       <Table className={style.table}>
         <TableHead className={style.head}>
+        <div className={style.searchBar}>
+                <SearchBar />
+        </div>
           <TableRow className={style.row}>
             <TableCell className={style.user}>
               <div className={style.TitleUser}>
                 <span>User</span>
-                <SearchBar />
               </div>
             </TableCell>
             <TableCell className={style.rol}>
@@ -73,8 +70,8 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
                 <span>Rol</span>
               </div>
             </TableCell>
-            <TableCell>
-              <div className={style.btn}>
+            <TableCell className={style.btn}>
+              <div >
                 <button title="New User" onClick={handleCreateUser}>
                   <IoPersonAdd
                     style={{
@@ -82,6 +79,7 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
                       height: "2em",
                     }}
                   />
+            
                 </button>
               </div>
             </TableCell>
@@ -130,7 +128,7 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
                           })
                         }
                       >
-                        <IoKey className={style.IKey} />
+                        <FaUserEdit className={style.IKey}/>
                       </button>
                     </TableCell>
                   </TableRow>
@@ -149,10 +147,7 @@ export default function Tables({ user, createUser, setPassowrd, newPassword }) {
             />
           </TableFooter>
         ) : (
-          <div className={style.notFound}>
-          <span>Not Found</span>
-
-          </div>
+          ""
         )}
       </Table>
     </TableContainer>

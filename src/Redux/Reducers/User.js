@@ -46,7 +46,6 @@ export default function root(state = initialState, action) {
       } else {
         userFilter = state.userName;
       }
-      console.log(userFilter)
       return {
         ...state,
         users: userFilter,

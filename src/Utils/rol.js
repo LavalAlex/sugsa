@@ -1,4 +1,3 @@
-// import { isArray } from "react-select/dist/declarations/src/utils";
 import { upperRol } from './select'
 
 export default function rolName(user) {

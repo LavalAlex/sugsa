@@ -1,8 +1,15 @@
 const validateNewUser = ({ password, name, rol, moduls, email }) => {
   if (!name) return { name: "Error, You must provider a name" };
+
   if (name.length < 4) {
     return { name: "Error, The name must be at least 4 characters" };
+  }else{
+    const letter = name.match(/^[a-zA-Z]+$/)
+    if(letter === null){
+      return {name:"Your name is not valid. Only characters A-Z, a-z"};
+    }
   }
+
 
   if (!email) return { email: "Error, You must provider an email" };
   if (email) {
@@ -21,7 +28,7 @@ const validateNewUser = ({ password, name, rol, moduls, email }) => {
     };
 
   if (!moduls) return { moduls: "Error, You must place a moduls" };
-  if (!rol) return { rol: "Error, you must select a role" };
+  if (!rol[0]) return { rol: "Error, you must select a role" };
 
   return {};
 };
@@ -53,6 +60,7 @@ const validateLogin = ({ email, password }) => {
     };
   return {};
 };
+
 module.exports = {
   validateNewUser,
   validateNewPassword,

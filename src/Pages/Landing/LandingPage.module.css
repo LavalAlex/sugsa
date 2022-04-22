@@ -1,15 +1,9 @@
 .container {
     display:block;
-    /* display: flex; */
-    border: 1rem solid;
-    outline: none;
-    line-height: 0;
-    /* vertical-align: bottom; */
     border-style: none;
     outline-style: none;
     width: 1354px;
     height: 550px;
+    margin-top: 1rem;
     background-image: url('../../Img/LandingPage.png');
-    
-
 }

@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { FaUserCircle, FaKey, FaEye } from "react-icons/fa";
+
 import { loginAdmin } from "../../Redux/Actions/Auth";
-import style from "./Login.module.css";
-import {
-  validateInput,
-  validateLogin,
-  validateNewPassword,
-} from "../../Utils/validate";
+import { validateLogin } from "../../Utils/validate";
 import { statusMsg } from "../../Utils/status";
+
+import style from "./Login.module.css";
 
 export default function AdminLogin() {
   const dispatch = useDispatch();
-  const [keyOn, setKeyOn] = useState(false)
+  const [keyOn, setKeyOn] = useState(false);
   const [errors, setErrors] = useState({
     email: "",
     password: "",
-    code:""
+    code: "",
   });
   const [input, setInput] = useState({
     email: "",
@@ -48,11 +46,11 @@ export default function AdminLogin() {
           }));
     } else {
       const code = statusMsg(await dispatch(loginAdmin(input)));
-      console.log(code)
-      setErrors((old)=>({
+      console.log(code);
+      setErrors((old) => ({
         ...old,
-        code: code.error? code.error : ""
-      }))
+        code: code.error ? code.error : "",
+      }));
     }
   };
 
@@ -61,10 +59,12 @@ export default function AdminLogin() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <h1>Login Admin</h1>
         <label>
-         <h5>Email</h5> 
-          <div className={`${style.inputGroup} ${
+          <h5>Email</h5>
+          <div
+            className={`${style.inputGroup} ${
               errors.email ? style.error : ""
-            } `}>
+            } `}
+          >
             <FaUserCircle />
             <input
               type="text"
@@ -84,7 +84,7 @@ export default function AdminLogin() {
           )}
         </div>
         <label>
-         <h5>Password</h5>
+          <h5>Password</h5>
           <div
             className={`${style.inputGroupPass} ${
               errors.password ? style.error : ""
@@ -92,13 +92,18 @@ export default function AdminLogin() {
           >
             <FaKey />
             <input
-              type={keyOn? "text": "password"}
+              type={keyOn ? "text" : "password"}
               value={input.password}
               name="password"
               onChange={(e) => handleChange(e)}
               placeholder="Enter password"
             />
-          <FaEye className={style.keyEye} onClick={(e)=>{setKeyOn((old) => !old)}}/>
+            <FaEye
+              className={style.keyEye}
+              onClick={(e) => {
+                setKeyOn((old) => !old);
+              }}
+            />
           </div>
         </label>
         <div>

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutAdmin } from "../../Redux/Actions/Auth";
-import Menu from "./Menu/Menu";
-import styles from "./NavBar.module.css";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
-import logo from '../../Img/logo.jpeg'
+
+import Menu from "./Menu/Menu";
+import logo from "../../Img/logo.jpeg";
+import { logoutAdmin } from "../../Redux/Actions/Auth";
+
+import styles from "./NavBar.module.css";
 
 export default function NavbarAdmin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const session = useSelector((store) => store.admin.name);
   const [showMenu, setShowMenu] = useState(false);
-  const search = useLocation().pathname === "/user";
 
   const logoutNav = () => {
     dispatch(logoutAdmin());
@@ -29,7 +29,6 @@ export default function NavbarAdmin() {
             <span>SUGSA</span>
             <img src={logo} className={styles.logo} alt="" />
           </Link>
-          {/* {search ? <SearchBar /> : ""} */}
         </div>
 
         <ul className={styles.menu}>
@@ -49,26 +48,20 @@ export default function NavbarAdmin() {
               </div>
             </div>
           ) : (
-            <NavLink
-              // className={styles.signup}
-              // activeClassName={styles.active}
-              to="/login"
-            >
-
-          <button
-              title="Log In"
+            <NavLink to="/login">
+              <button
+                title="Log In"
                 className={`${styles.nav__link} ${styles.sigup}`}
                 onClick={() => logoutNav()}
               >
-            <FiLogIn/>
-              
+                <FiLogIn />
               </button>
             </NavLink>
           )}
           {session ? (
             <div className={styles.right}>
               <button
-              title="Log Out"
+                title="Log Out"
                 className={`${styles.nav__link} ${styles.logout}`}
                 onClick={() => logoutNav()}
               >
@@ -80,7 +73,7 @@ export default function NavbarAdmin() {
           )}
         </div>
       </nav>
-      <Outlet/>
+      <Outlet />
     </header>
   );
 }

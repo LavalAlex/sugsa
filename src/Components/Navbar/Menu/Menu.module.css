@@ -200,15 +200,13 @@
   color: #fff;
 }
 
-.logout{
+.logout {
   margin-left: 00px;
 }
 
 .right {
-  /* width: 25vw; */
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 1em;
-  /* margin-left: 20rem; */
 }

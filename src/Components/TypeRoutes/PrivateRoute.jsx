@@ -8,7 +8,6 @@ function PrivateRoute() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(new Date(expires))
   if(expires){
     if(new Date(Date.now()) > new Date(expires) ){
       dispatch(logoutAdmin())

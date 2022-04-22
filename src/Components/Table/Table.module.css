@@ -1,22 +1,22 @@
 .table {
     flex-direction: row;
-    min-width: 1000px;
-    /* align-content: center; */
-    /* align-items: center; */
-    
-}
-.row{
-    display: flex;
-    /* justify-content: center; */
+    max-width: 1000px;
 }
 
 .head{
     display: flex;
-    background-color: hsl(220, 5%, 89%);
-    
+    background-color: white;
+    border-bottom: .08rem solid #1e1e1e;
 }
+
+.searchBar{
+    position: relative;
+    left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .bodyUser{
-    /* background-color: rgb(190, 190, 214); */
     display: flex;
     flex-direction: row;
     color: blue;
@@ -27,13 +27,10 @@
 
 .tableContainer {
     margin: 10px 10px;
-    /* max-width: 950px; */
-    /* border: 0.1em solid gray; */
     border-radius: .5rem;
     align-items: center;
     background-color: hsl(240, 100%, 100%);
     box-shadow: 0 0.25em 0.5em #0005;
-
 }
 
 .tableHeaderCell {
@@ -49,7 +46,6 @@
 .name {
     font-weight: bold;
     color: black;
-    /* margin-left: 5rem; */
 }
 
 
@@ -71,45 +67,42 @@
 .TitleRol{
     display: flex;
     margin-left: 8rem;
-    /* justify-content: center; */
 }
 
 .TitleRol span {
     color: black;
     font-size:large;
     font-weight: 900;
- 
     font-family: Arial, Helvetica, sans-serif;
-    /* margin-top: .5rem; */
-}
-.rol{
-    background-color: hsl(220, 5%, 89%);
-    /* width: 300px; */
-    /* text-align: center; */
 }
 
-.bodyRol{
-    /* background-color: rgb(135, 135, 243); */
-    display: flex;
-    color: rgb(42, 165, 73);
+.rol{
+    background-color: hsl(220, 5%, 89%);
+    text-align: center;
     width: 600px;
 }
 
+.user{
+    background-color: hsl(220, 5%, 89%);
+    width: 300px;
+}
 
 .btn{
-    
-    /* background-color: #4a9bbd; */
+    background-color: hsl(220, 5%, 89%);
     width: 30px;
     cursor: pointer;
     border: none;
+    padding-right: 1rem;
 }
+
 .btn button{
     background-color: hsl(220, 5%, 89%);
     cursor: pointer;
     border: none;
+    color: #0006;
 }
+
 .btn button:hover{
-    /* outline: 2px solid hsl(226deg, 100%, 70%) !important; */
     color: hsl(226deg, 100%, 70%);
 }
 
@@ -117,24 +110,22 @@
     border: none;
     width: 1px;
     background-color: white;
+    color: #0006;
 }
+
 .IKey{
-    /* color: black; */
     width: 2em;
     height: 2em;
     cursor: pointer;
-
 }
 
 .btnKey:hover{
     width: 2em;
     height: 2em;
     cursor: pointer;
-    color: hsl(226deg, 100%, 70%);
+    color: rgb(131, 58, 180);
 }
 
 .notFound{
-    display: flex;
-    justify-content: center;
+    position: relative;
 }
-

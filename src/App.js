@@ -5,7 +5,6 @@ import "./App.css";
 import LandingPage from "./Pages/Landing/LandingPage";
 import Login from "./Pages/Login/Login";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import User from "./Pages/User/User";
 
 import NavbarAdmin from "./Components/Navbar/NavBar";
 import PrivateRoute from "./Components/TypeRoutes/PrivateRoute";
@@ -19,9 +18,6 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route element={<PrivateRoute />}>
           <Route path="dashboard" element={<Dashboard />} />
-        </Route>
-        <Route element={<PrivateRoute />}>
-          <Route path="user" element={<User />} />
         </Route>
       </Routes>
     </div>

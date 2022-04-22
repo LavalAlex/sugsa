@@ -3,6 +3,6 @@ import style from "./LandingPage.module.css";
 
 export default function LandingPage() {
   return (
-    <img className={style.container}/>    
+    <div className={style.container}></div>    
   );
 }

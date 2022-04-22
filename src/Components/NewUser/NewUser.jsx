@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Select from "react-select";
-import { allRoles, createUser } from "../../Redux/Actions/User";
-
-import { validateNewUser } from "../../Utils/validate";
-import { objNewUser } from "../../Utils/utils";
-import { optionSelect } from "../../Utils/select";
-import style from "./NewUser.module.css";
 import { useNavigate } from "react-router-dom";
+import Select from "react-select";
 import { FaEye } from "react-icons/fa";
+
+import { allRoles, createUser } from "../../Redux/Actions/User";
+import { validateNewUser } from "../../Utils/validate";
+import { optionSelect } from "../../Utils/select";
+import { objNewUser } from "../../Utils/utils";
+
+import style from "./NewUser.module.css";
 
 export default function NewUserCard() {
   const dispatch = useDispatch();
@@ -67,20 +68,27 @@ export default function NewUserCard() {
         moduls: moduls ? moduls : "",
       }));
     else {
-      let newUser = objNewUser(data);
-      const error = await dispatch(createUser(newUser));
-      if (error) return alert("Error, could not create user");
-      else {
-        alert("User create successfully");
-        setData({
-          name: "",
-          email: "",
-          password: "",
-          moduls: "",
-          rol: [],
-        });
-        navigate("/user");
+      var conf = window.confirm("Do you want to create the user?");
+
+      if (conf) {
+        let newUser = objNewUser(data);
+        const error = await dispatch(createUser(newUser));
+        if (error) {
+          alert(error.data.msg);
+        } else {
+          alert("User create successfully");
+        }
+      } else {
+        alert("The user is not created!");
       }
+      setData({
+        name: "",
+        email: "",
+        password: "",
+        moduls: "",
+        rol: [],
+      });
+      navigate("/dashboard");
     }
   };
 
@@ -182,7 +190,6 @@ export default function NewUserCard() {
             type="text"
             placeholder="Moduls..."
             autoComplete="off"
-            
           />
         </div>
         {errors.moduls ? (

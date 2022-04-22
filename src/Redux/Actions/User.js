@@ -31,6 +31,7 @@ export function createUser(user) {
       dispatch({ type: NEW_USER, payload: response });
     } catch (e) {
       console.log(e.message);
+      return e.response
     }
   };
 }

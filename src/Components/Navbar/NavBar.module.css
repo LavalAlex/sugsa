@@ -5,12 +5,11 @@
 }
 
 .navbar {
-  background: rgb(26, 214, 226);
+  background: hsl(28, 80%, 52%);
   position: sticky;
   width: 100%;
   z-index: 10;
   top: 0;
-  /* background-color: #888; */
 }
 
 .navbar input {
@@ -53,7 +52,6 @@
 }
 
 .brand>img {
-  /* width: 0.95em; */
   margin: 0 1em 0 0;
   background: rgb(224, 217, 217);
   border-radius: 50%;
@@ -70,21 +68,19 @@
   width: 3rem;
   font-weight: 500;
   color: black;
-margin-right: 1rem;
-margin-left: .5rem;
+  margin-right: 1rem;
+  margin-left: .5rem;
 }
 
 .menu {
   display: flex;
   position: relative;
-  /* gap: 1em; */
 }
 
 .right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  /* gap: 1em; */
 }
 
 .nav__link {

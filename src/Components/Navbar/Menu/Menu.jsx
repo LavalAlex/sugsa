@@ -1,9 +1,10 @@
-import { FiSettings, FiUsers } from "react-icons/fi";
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { BiHomeAlt } from "react-icons/bi";
-import { NavLink, useLocation} from "react-router-dom";
+
 import styles from "./Menu.module.css";
 
-export default function Menu({ column, dashboard, profile, user, logout }) {
+export default function Menu({ column, dashboard }) {
   const path = useLocation().pathname;
 
   return (
@@ -11,7 +12,7 @@ export default function Menu({ column, dashboard, profile, user, logout }) {
       {!dashboard ? (
         <li>
           <NavLink
-          title="Dashboard"
+            title="Dashboard"
             className={`${styles.menu__link} ${
               path === "/dashboard" ? styles.active : ""
             }`}
@@ -23,37 +24,6 @@ export default function Menu({ column, dashboard, profile, user, logout }) {
       ) : (
         <></>
       )}
-
-      {/* {!user ? (
-        <li>
-          <NavLink
-            className={`${styles.menu__link} ${
-              path === "/user" ? styles.active : ""
-            }`}
-            // activeClassName={styles.active}
-            to="/user"
-          >
-            <FiUsers className={styles.icon} />
-          </NavLink>
-        </li>
-      ) : (
-        <></>
-      )} */}
-{/* 
-      {!profile ? (
-        <li>
-          <NavLink
-            className={`${styles.menu__link}  ${
-              path === "/setting" ? styles.active : ""
-            }`}
-            to={`/setting/`}
-          >
-            <FiSettings />
-          </NavLink>
-        </li>
-      ) : (
-        <></>
-      )} */}
     </ul>
   );
 }

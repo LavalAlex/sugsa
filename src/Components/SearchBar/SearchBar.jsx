@@ -1,15 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import style from "./SearchBar.module.css";
 import { BiSearch } from "react-icons/bi";
 import { searchUser } from "../../Redux/Actions/User";
 
+import style from "./SearchBar.module.css";
+
 export default function SearchBar(props) {
   const dispatch = useDispatch();
-
-  //   const users = useSelector((state) => state.usersReducer.users);
-  //   const admin = useSelector((state) => state.adminReducer.admin);
-
   const [input, setInput] = useState("");
   const [show, setShow] = useState(true);
 
@@ -22,9 +19,7 @@ export default function SearchBar(props) {
   const handleList = (e) => {
     setShow(e);
   };
-  const handleBlur = () => {
-    setInput("");
-  };
+
   return (
     <label className={style.inputData}>
       <BiSearch className={style.icon} /> 
@@ -35,8 +30,6 @@ export default function SearchBar(props) {
         placeholder="Search Users... "
         className={style.search}
       />
-
-      {/* <UserList show={show} users={users} input={input} admin={admin} /> */}
     </label>
   );
 }
