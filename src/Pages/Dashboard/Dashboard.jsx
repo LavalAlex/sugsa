@@ -21,6 +21,12 @@ export default function Dashboard() {
     dispatch(allRoles(admin.token));
   }, []);
 
+  const setUser = () =>{
+    setCreateUser(false)
+    dispatch(allUsers(admin.token));
+    dispatch(allRoles(admin.token));
+  }
+
   return (
     <div className={style.container}>
       <div className={style.containerNewUser}>
@@ -32,7 +38,7 @@ export default function Dashboard() {
               e.target.id === "close" ? setCreateUser((old) => false) : ""
             }
           >
-            <NewUser createUser={createUser} />
+            <NewUser setUser={setUser} />
           </div>
         ) : (
           ""

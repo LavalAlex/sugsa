@@ -11,7 +11,7 @@ import { objNewUser } from "../../Utils/utils";
 
 import style from "./NewUser.module.css";
 
-export default function NewUserCard() {
+export default function NewUserCard({ setUser }) {
   const dispatch = useDispatch();
   const admin = useSelector((state) => state.admin);
   const [optionsRoles, setOptionsRoles] = useState([]);
@@ -88,7 +88,7 @@ export default function NewUserCard() {
         moduls: "",
         rol: [],
       });
-      navigate("/dashboard");
+      setUser();
     }
   };
 
